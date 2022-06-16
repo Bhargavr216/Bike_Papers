@@ -1,0 +1,109 @@
+<html>
+<head>
+<style>
+  .box1{
+    height: 250px;
+    width: 100%;
+    background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
+    color: white;
+    opacity: 0.95;
+    
+    font-size: 2em;
+    text-align: center;
+    line-height: 250px;
+}
+#photos {
+  opacity: .88;
+}
+#photos img {
+  width: 30%;
+  float: left;
+  display: block;
+  margin: 10px;
+}
+ul {
+  list-style: none;
+  margin: 0px auto;
+  padding: 10px;
+  display: block;
+  max-width: 780px;
+  text-align: center;
+}
+#overlay {
+  background: rgba(0,0,0, .8);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  text-align: center;
+}
+#overlay img {
+  margin: 10% auto 0;
+  width: 550px;
+  border-radius: 5px;
+
+#photos {
+  width: 100%;
+}
+#photo-gallery {
+  width: 100%;
+}
+img{
+  padding: 200px;
+}
+</style>
+</head>
+<body class="box1">
+  <div><center><h2 class="text">BIKE AND IMP PAPERS</h2></center></div>
+<div id="photos">
+  <ul id="photo-gallery">
+    <li>
+      <a href="http://drive.google.com/uc?export=view&id=1pQn2NoMaJ3pu3KAPo92-_e9HsfgoZvF2">
+        <img src="http://drive.google.com/uc?export=view&id=1pQn2NoMaJ3pu3KAPo92-_e9HsfgoZvF2">
+      </a>
+    </li>
+    <li>
+      <a href="http://drive.google.com/uc?export=view&id=1zKS6dcoVrVJ1CljYMOF89WEszDU6HBSG">
+        <img src="http://drive.google.com/uc?export=view&id=1zKS6dcoVrVJ1CljYMOF89WEszDU6HBSG">
+      </a>
+    </li>
+    <li>
+      <a href="http://drive.google.com/uc?export=view&id=1Jyxgn3XB6SwpAT2pEIpk-RRs7ItjGJAf">
+        <img src="http://drive.google.com/uc?export=view&id=1Jyxgn3XB6SwpAT2pEIpk-RRs7ItjGJAf">
+      </a>
+    </li>
+    
+  </ul>
+</div>
+<script>
+
+var $overlay = $('<div id="overlay"></div>');
+var $image = $("<img>");
+
+//An image to overlay
+$overlay.append($image);
+
+//Add overlay
+$("body").append($overlay);
+
+  //click the image and a scaled version of the full size image will appear
+  $("#photo-gallery a").click( function(event) {
+    event.preventDefault();
+    var imageLocation = $(this).attr("href");
+
+    //update overlay with the image linked in the link
+    $image.attr("src", imageLocation);
+
+    //show the overlay
+    $overlay.show();
+  } );
+
+  $("#overlay").click(function() {
+    $( "#overlay" ).hide();
+  });
+
+</script>
+</body>
+</html>
