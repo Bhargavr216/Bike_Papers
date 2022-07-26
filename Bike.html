@@ -1,109 +1,328 @@
+<!DOCTYPE html>
 <html>
 <head>
-<style>
-  .box1{
-    height: 250px;
-    width: 100%;
-    background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%);
-    color: white;
-    opacity: 0.95;
-    
-    font-size: 2em;
-    text-align: center;
-    line-height: 250px;
+	<title></title>
+	<style type="text/css">
+		body {
+  font-family: Arial;
+  margin: 0;
 }
-#photos {
-  opacity: .88;
+
+* {
+  box-sizing: border-box;
+  color: white;
 }
-#photos img {
-  width: 30%;
-  float: left;
-  display: block;
-  margin: 10px;
+h1{
+	font-size: 6em;
+  font-weight: 500;
+  color: grey;
+  letter-spacing: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: 0.5s;
 }
-ul {
-  list-style: none;
-  margin: 0px auto;
-  padding: 10px;
-  display: block;
-  max-width: 780px;
-  text-align: center;
+
+h1:hover {
+  color: #fff;
+  text-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4;
 }
-#overlay {
-  background: rgba(0,0,0, .8);
-  width: 100%;
+img {
+  vertical-align: middle;
+}
+
+.container {
+  position: relative;
+  padding: 80px;
+  // max-width: 1000px;
+  // margin: 0 auto;
+}
+
+/* .holder {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+} */
+html, body{
   height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: none;
-  text-align: center;
 }
-#overlay img {
-  margin: 10% auto 0;
-  width: 550px;
-  border-radius: 5px;
-
-#photos {
-  width: 100%;
+body { 
+			 background: linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)), url("https://drive.google.com/uc?export=view&id=1pu9eN-bNH4fIKD9EdSD2vQpzF_20wj1c");
+			background-position: center center;
+			background-repeat:  no-repeat;
+			background-attachment: fixed;
+			background-size:  cover;
+			background-color: #999;
+  
 }
-#photo-gallery {
-  width: 100%;
-}
-img{
-  padding: 200px;
-}
-</style>
-</head>
-<body class="box1">
-  <div><center><h2 class="text">BIKE AND IMP PAPERS</h2></center></div>
-<div id="photos">
-  <ul id="photo-gallery">
-    <li>
-      <a href="http://drive.google.com/uc?export=view&id=1pQn2NoMaJ3pu3KAPo92-_e9HsfgoZvF2">
-        <img src="http://drive.google.com/uc?export=view&id=1pQn2NoMaJ3pu3KAPo92-_e9HsfgoZvF2">
-      </a>
-    </li>
-    <li>
-      <a href="http://drive.google.com/uc?export=view&id=1zKS6dcoVrVJ1CljYMOF89WEszDU6HBSG">
-        <img src="http://drive.google.com/uc?export=view&id=1zKS6dcoVrVJ1CljYMOF89WEszDU6HBSG">
-      </a>
-    </li>
-    <li>
-      <a href="http://drive.google.com/uc?export=view&id=1Jyxgn3XB6SwpAT2pEIpk-RRs7ItjGJAf">
-        <img src="http://drive.google.com/uc?export=view&id=1Jyxgn3XB6SwpAT2pEIpk-RRs7ItjGJAf">
-      </a>
-    </li>
+footer {
+    border: 0.1rem #000 solid;
+    border-left: 0;
+    border-right: 0;
+    text-align: center;
+    font-size: 1.3vw; 
     
-  </ul>
-</div>
-<script>
+    margin: 1vw 1.2vw;
+}
 
-var $overlay = $('<div id="overlay"></div>');
-var $image = $("<img>");
+.cells {
+    display: inline-block;
+    border-right: 1vh #000 solid;
+    
+    text-align: center;
 
-//An image to overlay
-$overlay.append($image);
+    
+    padding: 0vw 0.5vw;
+    margin: 0.5vw;
+}
+.cells:hover{
+	color: #fff;
+  text-shadow: 0 0 5px #03e9f4,
+              0 0 25px #03e9f4,
+              0 0 50px #03e9f4,
+              0 0 100px #03e9f4;
+}
+p:last-child {
+  border-right: 0;
+}
 
-//Add overlay
-$("body").append($overlay);
+a { text-decoration: none;}
+div, body{
+  margin: 0;
+  padding: 0;
+  font-family: exo, sans-serif;
+  
+}
+.wrapper {
+  height: 100%; 
+  width: 100%; 
+}
 
-  //click the image and a scaled version of the full size image will appear
-  $("#photo-gallery a").click( function(event) {
-    event.preventDefault();
-    var imageLocation = $(this).attr("href");
 
-    //update overlay with the image linked in the link
-    $image.attr("src", imageLocation);
+.holder::-webkit-scrollbar {
+  display: none;
+}
 
-    //show the overlay
-    $overlay.show();
-  } );
+/* Hide the images by default */
+.slides {
+  display: none;
+  /* max-width: 1000px; */
+  /* width: 100%;
+  flex-shrink: 0;
+  height: 100%; */
+}
 
-  $("#overlay").click(function() {
-    $( "#overlay" ).hide();
-  });
+.slides img {
+  width: 100%;
+}
 
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (max-width: 600px) {
+  .prevContainer,
+  .nextContainer {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+.prevContainer,
+.nextContainer {
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  top: 50%;
+  transform: translate(0, calc(-50% - 54px));
+  height: 54px;
+  width: 54px;
+  cursor: pointer;
+}
+
+.prevContainer {
+  margin-left: 26px;
+  left: 0;
+  border-radius: 30px 0 0 30px;
+}
+
+.prev {
+  position: relative;
+  top: 50%;
+  transform: translate(0, -50%);
+  height: 34px;
+  width: 32px;
+  float: left;
+  margin-left: 12px
+}
+
+.prev svg,
+.next svg {
+  fill: white;
+}
+
+.nextContainer {
+  margin-right: 26px;
+  right: 0;
+  border-radius: 0 30px 30px 0;
+}
+
+.next {
+  position: relative;
+  top: 50%;
+  transform: translate(0, -50%);
+  height: 34px;
+  width: 32px;
+  float: right;
+  margin-right: 12px;
+}
+
+/* Container for image text */
+.caption-container {
+  text-align: left;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
+  height: 20%;
+}
+
+/* Add a transparency effect for thumbnail images */
+.slide-thumbnail {
+  width: 100%;
+  opacity: 0.6;
+  height : 147px;
+  cursor: pointer;
+}
+
+.active,
+.slide-thumbnail:hover {
+  opacity: 1;
+}
+	</style>
+</head>
+<body  class="wrapper">
+<div class="container">
+  <!-- main images -->
+  <div><center> <h1>BIKE DOCUMENTS</h1></center> </div>
+  <div class="holder">
+    <div class="slides">
+      <img src="http://drive.google.com/uc?export=view&id=1pQn2NoMaJ3pu3KAPo92-_e9HsfgoZvF2" alt="" />
+    </div>
+
+    <div class="slides">
+      <img src="http://drive.google.com/uc?export=view&id=1zKS6dcoVrVJ1CljYMOF89WEszDU6HBSG">
+    </div>
+
+    <div class="slides">
+      <img src="http://drive.google.com/uc?export=view&id=1Jyxgn3XB6SwpAT2pEIpk-RRs7ItjGJAf">
+    </div>
+      
+    <div class="slides">
+      <img src="https://drive.google.com/uc?export=view&id=1-JEcLfUadpW52oBY-bjB9z0itCvmcM6Q">
+    </div>
+
+    <div class="slides">
+      <img src="https://drive.google.com/uc?export=view&id=1w14iY2Tb7XhwT0mpWO8h23RzOz9HyI3r">
+    </div>
+      
+    <div class="slides">
+      <img src="https://drive.google.com/uc?export=view&id=1pmhAeEEFXgG4bwKZRLEI7jTF5KeX52jg">
+    </div>
+    <div class="slides">
+      <img src="https://drive.google.com/uc?export=view&id=1prwFPuXqsltB7a3FHIx3pvxClMYIEwit">
+    </div>
+  </div>
+
+  <div class="prevContainer"><a class="prev" onclick="plusSlides(-1)">
+    <svg viewBox="0 0 24 24">
+    <path d="M20,11V13H8L13.5,18.5L12.08,19.92L4.16,12L12.08,4.08L13.5,5.5L8,11H20Z"></path>
+</svg>
+    </a></div>
+  <div class="nextContainer"><a class="next" onclick="plusSlides(1)">
+    <svg viewBox="0 0 24 24">
+  <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"></path>
+</svg>
+    </a></div>
+
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <!-- thumnails in a row -->
+  <div class="row">
+    <div class="column">
+      <img class="slide-thumbnail" src="http://drive.google.com/uc?export=view&id=1pQn2NoMaJ3pu3KAPo92-_e9HsfgoZvF2" onclick="currentSlide(1)" alt="Driving liecence (front)">
+    </div>
+    <div class="column">
+      <img class="slide-thumbnail" src="http://drive.google.com/uc?export=view&id=1zKS6dcoVrVJ1CljYMOF89WEszDU6HBSG" onclick="currentSlide(2)" alt="Driving liecence (back)">
+    </div>
+    <div class="column">
+      <img class="slide-thumbnail" src="http://drive.google.com/uc?export=view&id=1Jyxgn3XB6SwpAT2pEIpk-RRs7ItjGJAf" onclick="currentSlide(3)" alt="Pan Card">
+    </div>
+    <div class="column">
+      <img class="slide-thumbnail" src="https://drive.google.com/uc?export=view&id=1-JEcLfUadpW52oBY-bjB9z0itCvmcM6Q" onclick="currentSlide(4)" alt="Voter Id">
+    </div>
+    <div class="column">
+      <img style="height : 147px;" class="slide-thumbnail" src="https://drive.google.com/uc?export=view&id=1w14iY2Tb7XhwT0mpWO8h23RzOz9HyI3r" onclick="currentSlide(5)" alt="New Registration paper">
+    </div>    
+    <div class="column">
+      <img class="slide-thumbnail" src="https://drive.google.com/uc?export=view&id=1pmhAeEEFXgG4bwKZRLEI7jTF5KeX52jg" onclick="currentSlide(6)" alt="Temp Registration papers(1)">
+    </div>
+    <div class="column">
+      <img class="slide-thumbnail" src="https://drive.google.com/uc?export=view&id=1prwFPuXqsltB7a3FHIx3pvxClMYIEwit" onclick="currentSlide(7)" alt="Temp Registration papers(2)">
+    </div>
+  </div>
+  </div>
+  	<footer>
+<p class="cells">VELLAMUNJI BHARGAV</p>
+    <p class="cells"><a href="tel:+91 6301223071">6301223071</a></p>
+    <p class="cells"><a href="bhargav91216@gmail.com">bhargav91216@gmail.com</a></p>  
+</footer>
+
+<script type="text/javascript">
+	var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("slides");
+  var dots = document.getElementsByClassName("slide-thumbnail");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  console.log(slideIndex);
+
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+      // slides[i].style.display = "inline";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  // slides[slideIndex-1].style.display = "inline";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
 </script>
 </body>
 </html>
